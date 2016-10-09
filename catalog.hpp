@@ -25,6 +25,9 @@ public:
   Product(const std::string& code,
           const std::string& name,
           double price) {
+    
+    
+    
     // TODO: implement this function properly
     throw std::logic_error("not implemented yet");
   }
