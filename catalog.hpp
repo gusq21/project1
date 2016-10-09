@@ -8,6 +8,8 @@
 
 #include <stdexcept>
 #include <string>
+using namespace std;
+
 
 // A product represents one particular kind of product, such as apples
 // or cereal.
@@ -29,7 +31,7 @@ public:
     
     
     // TODO: implement this function properly
-    throw std::logic_error("not implemented yet");
+    throw std::invalid_argument("Price must be greater than 0");
   }
 
   ~Product() { }
