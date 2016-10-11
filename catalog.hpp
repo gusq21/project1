@@ -9,6 +9,7 @@
 #include <stdexcept>
 #include <string>
 using namespace std;
+int n;
 
 
 // A product represents one particular kind of product, such as apples
@@ -28,12 +29,9 @@ public:
   Product(const std::string& code,
           const std::string& name,
           double price): code(code), name(name), price(price) {
-   /* int n = 0;
-    header = new DNode<E>;
-    trailer = new DNode<E>;
-    header -> next = trailer;
-    trailer - prev = header;
-    */
+     n=0;
+    head = NULL;
+    elem = (code, name, price);
     
     
     // TODO: implement this function properly
@@ -112,7 +110,9 @@ public:
   void addProduct(const std::string& code,
                   const std::string& name,
                   double price) {
+    
     // TODO: implement this function properly
+    
     throw std::logic_error("not implemented yet");
   }
 
