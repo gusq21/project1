@@ -13,6 +13,7 @@ using namespace std;
 
 // A product represents one particular kind of product, such as apples
 // or cereal.
+template <typename E>
 class Product {
 public:
   // Create a product with a given code, name, and price.
@@ -27,7 +28,12 @@ public:
   Product(const std::string& code,
           const std::string& name,
           double price): code(code), name(name), price(price) {
-    
+   /* int n = 0;
+    header = new DNode<E>;
+    trailer = new DNode<E>;
+    header -> next = trailer;
+    trailer - prev = header;
+    */
     
     
     // TODO: implement this function properly
@@ -56,8 +62,9 @@ public:
   // stored. It must be positive, or else this function throws
   // std::invalid_argument.
   Catalog(int maxProducts) {
+      
     // TODO: implement this function properly
-    throw std::logic_error("not implemented yet");
+    throw std::invalid_argument("There must a positive number of products");
   }
   
   ~Catalog() {
@@ -66,12 +73,23 @@ public:
   }
 
   // Accessors.
-  int getMaxProducts() const {
+  template <typename E>
+  int getMaxProducts( , E product[], int n) const {
+      E maxProducts = -1;
+      for (int i=0; i < n; i++){
+          if (maxProducts < products[i])
+              maxProducts = products[i];
+        return maxProducts;
+      
+    
+    
     // TODO: implement this function properly
     throw std::logic_error("not implemented yet");
   }
   
   int getNumProducts() const {
+    numberOfProducts = 
+    return numberOfProducts;
     // TODO: implement this function properly
     throw std::logic_error("not implemented yet");
   }
