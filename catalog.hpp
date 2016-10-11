@@ -26,7 +26,7 @@ public:
   // function throws std::invalid_argument.
   Product(const std::string& code,
           const std::string& name,
-          double price) {
+          double price): code(code), name(name), price(price) {
     
     
     
