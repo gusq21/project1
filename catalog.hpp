@@ -114,14 +114,21 @@ public:
 	// stored. It must be positive, or else this function throws
 	// std::invalid_argument.
 	Catalog() {
-
+		head = NULL;
+		n = 0;
 		// TODO: implement this function properly
 		throw std::invalid_argument("There must a positive number of products");
 	}
 
 	~Catalog() {
-		// TODO: implement this function properly
-		throw std::logic_error("not implemented yet");
+		bool empty() {
+			if (n == 0) {
+				Return true;
+				Else return false;
+			}
+			// TODO: implement this function properly
+			throw std::logic_error("not implemented yet");
+		}
 	}
 
 	// Accessors.
@@ -197,13 +204,27 @@ public:
 		// Throw std::invalid_argument if no product with that code exists
 		// in the catalog.
 		const Product& findCode(const std::string& code) const {
+			
+			
 
+			while (cur->next && (val >= cur->next->val))
+			{
+				cur = cur->next;
+				return code;
+				cout >> "Enter a product code";
+				cin << pCode;
+				if (code == pCode) {
+					return Product;
+				}
+				if (code != = cin << "") throw std::invalid_argument("The code doesn't exist in the catalog");
+			}
 			
 			// TODO: implement this function properly
-			throw std::logic_error("not implemented yet");
 		}
 
 private:
+	SNode<E> *head;
+	int n;
 	// TODO: add data members
 	};
 };
