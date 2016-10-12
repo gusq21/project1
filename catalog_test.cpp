@@ -14,18 +14,18 @@ int main() {
     // negative price should throw exception
     bool threw = false;
     try {
-      Product p("123", "oats", -1.0);
+      Product<bool> p("123", "oats", -1.0);
     } catch (invalid_argument e) {
       threw = true;
     }
     assert(threw);
 
-    Product works_fine("123", "oats", 1.0);
+    Product<bool> works_fine("123", "oats", 1.0);
   }
 
   cout << "Product accessors" << endl;
   {
-    Product p("123", "oats", 1.0);
+    Product<string> p("123", "oats", 1.0);
     assert(p.getCode() == "123");
     assert(p.getName() == "oats");
     assert(p.getPrice() == 1.0);
@@ -33,15 +33,16 @@ int main() {
 
   cout << "Catalog constructor" << endl;
   {
-    Catalog a(5), b(10);
+    Catalog<int> a(5), b(10);
     assert(a.getMaxProducts() == 5);
     assert(b.getMaxProducts() == 10);
+	Catalog<string> a(5), b(10);
     assert(a.getNumProducts() == 0);
     assert(b.getNumProducts() == 0);
 
     bool threw = false;
     try {
-      Catalog c(0);
+      Catalog<bool> c(0);
     } catch (invalid_argument e) {
       threw = true;
     }
@@ -49,19 +50,19 @@ int main() {
 
     threw = false;
     try {
-      Catalog c(-1);
+      Catalog<bool> c(-1);
     } catch (invalid_argument e) {
       threw = true;
     }
     assert(threw);
 
-    assert(!a.isFull());
-    assert(!b.isFull());
+    assert(!a.isFull<bool>());
+    assert(!b.isFull<bool>());
   }
 
   cout << "Catalog gets full" << endl;
   {
-    Catalog a(2);
+    Catalog<int> a(2);
     assert(a.getMaxProducts() == 2);
     assert(a.getNumProducts() == 0);
     assert(!a.isFull());
@@ -87,7 +88,7 @@ int main() {
 
   cout << "Catalog add and search for products" << endl;
   {
-    Catalog a(4);
+    Catalog<string> a(4);
     a.addProduct("100", "oats", 1.0);
     a.addProduct("101", "groats", 2.0);
     assert(a.getNumProducts() == 2);
@@ -133,7 +134,7 @@ int main() {
 
   cout << "Catalog uses heap memory" << endl;
   {
-    Catalog a(20*1000*1000); // 20 million is too big for the stack 
+    Catalog<int> a(20*1000*1000); // 20 million is too big for the stack 
   }
 
   return 0;
